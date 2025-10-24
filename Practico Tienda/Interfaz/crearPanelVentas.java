@@ -93,8 +93,8 @@ public class crearPanelVentas extends JPanel {
             int idEmp = Integer.parseInt(selectedEmp.split(" - ")[0]);
             int idCli = Integer.parseInt(selectedCli.split(" - ")[0]);
 
-            Empleado emp = tienda.empleados.get(idEmp);
-            Cliente cli = tienda.clientes.get(idCli);
+            Empleado emp = tienda.listaEmp.get(idEmp);
+            Cliente cli = tienda.listaClientes.get(idCli);
 
             ventaActual = new Venta(emp, cli);
             interfazTienda.agregarTexto("Nueva venta creada");
@@ -134,14 +134,14 @@ public class crearPanelVentas extends JPanel {
 
     private void cargarEmpleados() {
         cmbEmpleados.removeAllItems();
-        for (Empleado emp : tienda.empleados.values()) {
+        for (Empleado emp : tienda.listaEmp) {
             cmbEmpleados.addItem(emp.getId() + " - " + emp.getNombre());
         }
     }
 
     private void cargarClientes() {
         cmbClientes.removeAllItems();
-        for (Cliente cli : tienda.clientes.values()) {
+        for (Cliente cli : tienda.listaClientes) {
             cmbClientes.addItem(cli.getId() + " - " + cli.getNombre());
         }
     }

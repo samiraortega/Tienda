@@ -17,10 +17,14 @@ public class crearPanelConsultas extends JPanel {
     public crearPanelConsultas(Tienda tienda, InterfazTienda interfazTienda) {
         this.tienda = tienda;
         this.interfazTienda = interfazTienda;
+        Color rosa = new Color(255, 172, 199);
+
 
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 5, 5, 5);
+        setBackground(rosa);
+
 
         JButton btnMostrarEmpleados = new JButton("Mostrar Empleados");
         JButton btnMostrarClientes = new JButton("Mostrar Clientes");
@@ -47,7 +51,7 @@ public class crearPanelConsultas extends JPanel {
         btnMostrarEmpleados.addActionListener(e -> {
             interfazTienda.agregarTexto("");
             interfazTienda.agregarTexto("---- EMPLEADOS -----");
-            for (Empleado emp : tienda.empleados.values()) {
+            for (Empleado emp : tienda.listaEmp) {
                 interfazTienda.agregarTexto("ID: " + emp.getId() + " - " + emp.getNombre() + " - " + emp.getPuesto());
             }
         });
@@ -55,7 +59,7 @@ public class crearPanelConsultas extends JPanel {
         btnMostrarClientes.addActionListener(e -> {
             interfazTienda.agregarTexto("");
             interfazTienda.agregarTexto("---- CLIENTES ----");
-            for (Cliente cli : tienda.clientes.values()) {
+            for (Cliente cli : tienda.listaClientes) {
                 interfazTienda.agregarTexto("ID: " + cli.getId() + " - " + cli.getNombre() + " - " + cli.getCorreo());
             }
         });

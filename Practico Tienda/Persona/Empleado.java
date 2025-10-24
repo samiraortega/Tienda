@@ -13,9 +13,7 @@ public class Empleado extends Persona{
     }
 
     @Override
-    public void mostrarInfo() {
-        System.out.println("Nombre: " + getNombre());
-        System.out.println("Id: " + getId());
-        System.out.println("Puesto: " + getPuesto());
+    public String mostrarInfo() {
+        return "- Nombre: " + getNombre() + "- Id: " + getId() + "- Puesto: " + getPuesto();
     }
 }

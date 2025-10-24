@@ -9,22 +9,33 @@ public class crearPanelClientes extends JPanel {
     private Tienda tienda;
     private InterfazTienda interfazTienda;
 
+
     public crearPanelClientes(Tienda tienda, InterfazTienda interfazTienda) {
         this.tienda = tienda;
         this.interfazTienda = interfazTienda;
+        Color rosa = new Color(255, 172, 199);
+        Color rosaBoton = new Color(224, 107, 128);
+
+
 
         setLayout( new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 5, 5, 5);
+        setBackground(rosa);
 
 
         JLabel lblNombre = new JLabel("Nombre:");
         JTextField txtNombre = new JTextField(20);
+
         JLabel lblId = new JLabel("ID:");
         JTextField txtId = new JTextField(20);
+
         JLabel lblCorreo = new JLabel("Correo:");
         JTextField txtCorreo = new JTextField(20);
+
+
         JButton btnAgregar = new JButton("Agregar Cliente");
+        btnAgregar.setBackground(rosaBoton);
 
         gbc.gridx = 0; gbc.gridy = 0;
         add(lblNombre, gbc);
@@ -46,20 +57,19 @@ public class crearPanelClientes extends JPanel {
         add(btnAgregar, gbc);
 
         btnAgregar.addActionListener(e -> {
-            try {
                 String nombre = txtNombre.getText();
-                int id = Integer.parseInt(txtId.getText());
+                String id = txtId.getText();
                 String correo = txtCorreo.getText();
+                int idInt = Integer.parseInt(id);
 
-                tienda.crearCliente(nombre, id, correo);
+
+                tienda.crearCliente(nombre, idInt, correo);
                 interfazTienda.agregarTexto("Cliente agregado: " + nombre + " (ID: " + id + ")");
 
                 txtNombre.setText("");
                 txtId.setText("");
                 txtCorreo.setText("");
-            } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(this, "El ID debe ser un número");
-            }
+
         });
 
     }

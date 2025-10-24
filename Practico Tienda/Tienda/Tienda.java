@@ -9,27 +9,27 @@ import java.util.HashMap;
 
 public class Tienda {
     private String nombre;
-    public HashMap <Integer,Empleado> empleados;
-    public HashMap<Integer, Cliente> clientes;
+    public ArrayList <Empleado> listaEmp;
+    public ArrayList<Cliente> listaClientes;
     public ArrayList<Producto> inventario;
     public ArrayList<Venta> ventas;
 
     public Tienda(String nombre) {
         this.nombre=nombre;
-        this.empleados=new HashMap<>();
+        this.listaEmp=new ArrayList<>();
         this.inventario = new ArrayList<>();
-        this.clientes = new HashMap<>();
+        this.listaClientes = new ArrayList<>();
         this.ventas = new ArrayList<>();
     }
 
     public void agregarEmpleados (Empleado emp){
-        empleados.put(emp.getId(), emp);
+        listaEmp.add(emp);
         System.out.println("\n");
         System.out.println("----Empleado agregado----");
         emp.mostrarInfo();
     }
     public void agregarCliente (Cliente c){
-        clientes.put(c.getId(), c);
+        listaClientes.add(c);
         System.out.println("\n");
         System.out.println("---Cliente agregado---");
         c.mostrarInfo();
@@ -44,7 +44,7 @@ public class Tienda {
     }
 
     public void mostrarClientes() {
-        for (Cliente e : clientes.values()) {
+        for (Cliente e : listaClientes) {
             System.out.println("\n");
             System.out.println("Lista de estudiantes: ");
             e.mostrarInfo();
@@ -52,7 +52,7 @@ public class Tienda {
     }
 
     public void mostrarEmpleados() {
-        for (Empleado e : empleados.values()){
+        for (Empleado e : listaEmp){
             System.out.println("\n");
             System.out.println("Lista de Empleados: ");
             e.mostrarInfo();
@@ -93,5 +93,21 @@ public class Tienda {
 
     public String getNombre() {
         return nombre;
+    }
+
+    public ArrayList<Empleado> getListaEmp() {
+        return listaEmp;
+    }
+
+    public ArrayList<Cliente> getListaClientes() {
+        return listaClientes;
+    }
+
+    public ArrayList<Producto> getInventario() {
+        return inventario;
+    }
+
+    public ArrayList<Venta> getVentas() {
+        return ventas;
     }
 }

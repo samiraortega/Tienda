@@ -25,7 +25,7 @@ public abstract class Persona {
         this.id = id;
     }
 
-    public abstract void mostrarInfo();
+    public abstract String mostrarInfo();
 
 
 }

@@ -13,9 +13,8 @@ public class Cliente extends Persona {
     }
 
     @Override
-    public void mostrarInfo() {
-        System.out.println("Nombre: " + getNombre());
-        System.out.println("Id: " + getId());
-        System.out.println("Correo: " + getCorreo());
+    public String mostrarInfo() {
+        return "- Nombre: " + getNombre() + "- Id: " + getId() + "- Correo: " + getCorreo();
+
     }
 }
